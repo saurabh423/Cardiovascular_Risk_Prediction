@@ -36,7 +36,7 @@ Medical( history)
 * Prevalent Stroke: whether or not the patient had previously had a stroke (Nominal)
 * Prevalent Hyp: whether or not the patient was hypertensive (Nominal)
 * Diabetes: whether or not the patient had diabetes (Nominal)
-*
+
 Medical(current)
 
 * Tot Chol: total cholesterol level (Continuous)
@@ -45,7 +45,7 @@ Medical(current)
 * BMI: Body Mass Index (Continuous)
 * Heart Rate: heart rate (Continuous - In medical research, variables such as heart rate though in fact discrete, yet are considered continuous because of large number of possible values.)
 * Glucose: glucose level (Continuous)
-*
+
 Predict variable (desired target)
 
 * 10 year risk of developing coronary heart disease (CHD) — (binary: “1”, means “There is a risk”, “0” means “There is no risk”).
@@ -61,6 +61,40 @@ The full code for this article can be found here in github repository. It is imp
 **Feature Selection:** Since having irrelevant features in a data set can decrease the accuracy of the models applied, I used Tree-based: SelectFromModel which is an embedded method that uses algorithms that have built-in feature selection methods which were later used to build different models.
 
 **Model development and comparison:** I used four classification models, i.e., Logistic Regression, K-Nearest Neighbors, Decision Trees and Support Vector Machine, After which I compared the performance of the models using their accuracy and F1 scores. I then settled with the best performing model.
+
+After training each model and tuning their hyper-parameters using grid search, I evaluated and compared their performance using the following metrics: 
+
+**The accuracy score:** which is the ratio of the number of correct predictions to the total number of input samples. It measures the tendency of an algorithm to classify data correctly.
+
+**The F1 Score:** Which is defined as the weighted harmonic mean of the test’s precision and recall. By using both precision and recall it gives a more realistic measure of a test’s performance. (Precision, also called the positive predictive value, is the proportion of positive results that truly are positive. Recall, also called sensitivity, is the ability of a test to correctly identify positive results to get the true positive rate).
+
+**The Area under the ROC Curve (AUC):** Which provides an aggregate measure of performance across all possible classification thresholds. It gives the probability that the model ranks a random positive example more highly than a random negative example.
+
+Here are the results:
+
+![image](https://user-images.githubusercontent.com/60726057/146069853-af1aca4b-491f-4607-ad69-bb0570e286f4.png)
+
+![image](https://user-images.githubusercontent.com/60726057/146069927-12c0d050-ffd2-49f9-810c-3f38b45b0f07.png)
+
+**Observation from above table:**
+* XGBoost, Support vector machine gives highest Accuracy, Recall, Precision and AUC score.
+* Highest recall is given by Support vector machine
+* Highest AUC is given by Support vector machine
+* 
+Overall we can say that the support vector machine was the best performing model across all metrics. It’s best parameters were a radial kernel, a C value of 10 and a gamma value of 1. Its high AUC and F1 score also show that the model has a high true positive rate and is thus sensitive to predict if one has a high risk of developing CHD , i.e., getting a heart attack within 10 years.
+
+# 5.CHALLENGES
+* Handling the missing values.
+* Making data more accurate.
+* Selection of important features.
+
+# 6.CONCLUSION
+* The number of people who have Cardiovascular heart disease is almost equal between smokers and non-smokers.
+* The top features in predicting the ten year risk of developing Cardiovascular Heart Disease are 'age', 'totChol', 'sysBP', 'diaBP', 'BMI', 'heartRate', 'glucose'.
+* The Support vector machine with the radial kernel is the best performing model in terms of accuracy and the F1 score and Its high AUC-score shows that it has a high true positive rate.
+* Balancing the dataset by using the SMOTE technique helped in improving the models' sensitivity.
+* With more data(especially that of the minority class) better models can be built.
+
 
 
 
