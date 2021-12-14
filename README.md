@@ -3,6 +3,64 @@
 ![image](https://user-images.githubusercontent.com/60726057/124645816-8365da00-deb1-11eb-9509-e66ca30df5c6.png)
 
 
-The dataset is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. 
-The classification goal is to predict whether the patient has a 10-year risk of future coronary heart disease (CHD). 
-The dataset provides the patients’ information. It includes over 4,000 records and 15 attributes.
+# 1.INTRODUCTION:
+
+Heart disease is the major cause of morbidity and mortality globally: it accounts for more deaths annually than any other cause. According to the WHO, an estimated 17.9 million people died from heart disease in 2016, representing 31% of all global deaths. Over three quarters of these deaths took place in low- and middle-income countries. 
+Of all heart diseases, coronary heart disease (aka heart attack) is by far the most common and the most fatal. In the United States, for example, it is estimated that someone has a heart attack every 40 seconds and about 805,000 Americans have a heart attack every year (CDC 2019).
+Doctors and scientists alike have turned to machine learning (ML) techniques to develop screening tools and this is because of their superiority in pattern recognition and classification as compared to other traditional statistical approaches.
+In this project, I’ve built a model for predicting whether a patient has a 10-year risk of developing coronary heart disease(CHD) using different Machine Learning techniques on the Framingham, Massachusetts town dataset.
+ 
+ # 2.Problem Statement
+ 
+The objective of the project is to come up with the machine learning model to predict whether a patient has 10-year risk of developing coronary heart disease (CHD) using the residents of the town of Framingham, Massachusetts dataset.
+
+# 3.DATA SUMMARY 
+
+The data set is publicly available on the Kaggle website, and it is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. The classification goal is to predict whether the patient has 10-year risk of future coronary heart disease (CHD). The data set provides the patients’ information. It includes over 4,000 records and 15 attributes. Each attribute is a potential risk factor. There are both demographic, behavioral and medical risk factors.
+
+### Attributes:
+
+Demographic:
+
+* Sex: male or female("M" or "F")
+
+* Age: Age of the patient;(Continuous - Although the recorded ages have been truncated to whole numbers, the concept of age is continuous) Behavioral
+
+* is_smoking: whether or not the patient is a current smoker ("YES" or "NO")
+
+* Cigs Per Day: the number of cigarettes that the person smoked on average in one day.(can be considered continuous as one can have any number of cigarettes, even half a cigarette.)
+
+Medical( history)
+
+* BP Meds: whether or not the patient was on blood pressure medication (Nominal)
+* Prevalent Stroke: whether or not the patient had previously had a stroke (Nominal)
+* Prevalent Hyp: whether or not the patient was hypertensive (Nominal)
+* Diabetes: whether or not the patient had diabetes (Nominal)
+*
+Medical(current)
+
+* Tot Chol: total cholesterol level (Continuous)
+* Sys BP: systolic blood pressure (Continuous)
+* Dia BP: diastolic blood pressure (Continuous)
+* BMI: Body Mass Index (Continuous)
+* Heart Rate: heart rate (Continuous - In medical research, variables such as heart rate though in fact discrete, yet are considered continuous because of large number of possible values.)
+* Glucose: glucose level (Continuous)
+*
+Predict variable (desired target)
+
+* 10 year risk of developing coronary heart disease (CHD) — (binary: “1”, means “There is a risk”, “0” means “There is no risk”).
+
+# 4.TOOL DEVELOPMENT
+
+The full code for this article can be found here in github repository. It is implemented in Python and different classification algorithms are used. Below is a brief description of the general approach that I employed:
+
+**Data cleaning and preprocessing:** Here I checked and dealt with missing and duplicate variables from the data set as these can grossly affect the performance of different machine learning algorithms (many algorithms do not tolerate missing data).
+
+**Exploratory Data Analysis:** Here I wanted to gain important statistical insights from the data and the things that I checked for were the distributions of the different attributes, correlations of the attributes with each other and the target variable and I calculated important odds and proportions for the categorical attributes.
+
+**Feature Selection:** Since having irrelevant features in a data set can decrease the accuracy of the models applied, I used Tree-based: SelectFromModel which is an embedded method that uses algorithms that have built-in feature selection methods which were later used to build different models.
+
+**Model development and comparison:** I used four classification models, i.e., Logistic Regression, K-Nearest Neighbors, Decision Trees and Support Vector Machine, After which I compared the performance of the models using their accuracy and F1 scores. I then settled with the best performing model.
+
+
+
